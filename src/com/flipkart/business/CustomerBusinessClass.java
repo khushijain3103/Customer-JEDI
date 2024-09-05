@@ -2,7 +2,7 @@ package com.flipkart.business;
 
 import com.flipkart.bean.Customer;
 
-public class CustomerBusinessClass {
+public class CustomerBusinessClass implements CustomerInterface {
 
 
     Customer customers[] = new Customer[3];

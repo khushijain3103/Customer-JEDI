@@ -1,6 +1,7 @@
 package com.flipkart.client;
 
 import com.flipkart.business.CustomerBusinessClass;
+import com.flipkart.business.CustomerInterface;
 
 import java.util.Scanner;
 
@@ -9,8 +10,9 @@ public class CustomerClient {
 
         Scanner sc = new Scanner(System.in);
 
-        CustomerBusinessClass customerBusinessClass = new CustomerBusinessClass();
+//        CustomerBusinessClass customerBusinessClass = new CustomerBusinessClass();
 
+        CustomerInterface customerBusinessClass = new CustomerBusinessClass();
         customerBusinessClass.createCustomer();
 
         customerBusinessClass.listCustomer();
@@ -26,6 +28,8 @@ public class CustomerClient {
         String customerAddress = sc.next();
 
         customerBusinessClass.updateCustomer(customerID , customerName , customerAddress);
+
+        customerBusinessClass.listCustomer();
 
         System.out.println("Enter customerID to delete");
 
