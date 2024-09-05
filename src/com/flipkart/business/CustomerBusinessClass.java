@@ -29,13 +29,39 @@ public class CustomerBusinessClass {
         customers[2].setCustomerAddress("abc");
     }
 
-    public boolean updateCustomer(int customerID){
+    public boolean updateCustomer(int customerID , String name , String address){
         System.out.println("customer is updated by ID --> " + customerID);
-        return true;
+
+        for(Customer customer : customers){
+            if(customer.getCustomerID() == customerID){
+                customer.setCustomerName(name);
+                customer.setCustomerAddress(address);
+                return true;
+            }
+        }
+
+        return false;
     }
 
     public boolean deleteCustomer(int customerID){
+
         System.out.println("customer is deleted by ID --> " + customerID);
+
+        Customer newCustomerArray[] = new Customer[2];
+
+        int index = 0;
+
+        for(Customer customer : customers){
+            if(customer.getCustomerID() == customerID){
+                continue;
+            }
+
+            newCustomerArray[index] = customer;
+            index++;
+        }
+
+        customers = newCustomerArray;
+
         return true;
     }
 
